@@ -9,7 +9,7 @@ console.log(
   `Enter: http://localhost:3000/${randumpath.toString('hex')}`
 );
 
-
+console.log(process.env.AGUANO_CONTENT);
 var recursive = require('recursive-readdir');
 recursive('./', function (err, files) {
   // Files is an array of filename
