@@ -1,0 +1,33 @@
+{
+  "name": "aguano",
+  "version": "0.0.1",
+  "description": "Just a CRM.",
+  "author": "Olaf Radicke",
+  "homepage": "https://github.com/OlafRadicke/aguano",
+  "keywords": [
+    "ghost",
+    "blog",
+    "cms"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:OlafRadicke/aguano.git"
+  },
+  "bugs": "https://github.com/OlafRadicke/aguano/issues",
+  "license": "GNU AFFERO GENERAL PUBLIC LICENSE",
+  "main": "./core/index",
+  "scripts": {
+    "start": "node index"
+  },
+  "dependencies": {
+    "cookie-session": "1.2.0",
+    "express": "4.14.0",
+    "sqlite3": "3.1.4",
+		"crypto": "*",
+		"recursive-readdir": "*"
+  },
+  "optionalDependencies": {
+    "sqlite": "3"
+  }
+
+}
