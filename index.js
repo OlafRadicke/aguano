@@ -4,22 +4,23 @@ var app = express();
 
 const crypto = require('crypto');
 const randumpath = crypto.randomBytes(30);
-
-console.log(
-  `Enter: http://localhost:3000/${randumpath.toString('hex')}`
-);
-
-console.log(process.env.AGUANO_CONTENT);
 var recursive = require('recursive-readdir');
-recursive('./', function (err, files) {
-  // Files is an array of filename
-  console.log(files);
-});
 
-app.get('/' + randumpath.toString('hex'), function (req, res) {
-  res.send('Hello World!');
-});
+console.log(`Enter: http://localhost:3000/${randumpath.toString('hex')}`);
+console.log("AGUANO_CONTENT: " + process.env.AGUANO_CONTENT);
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!');
+recursive(process.env.AGUANO_CONTENT, function (err, files) {
+	// Files is an array of filename
+	console.log(files);
+	if (err)
+  		throw ("Reading directory is faild with:" + err);
+
+
+	app.get('/' + randumpath.toString('hex'), function (req, res) {
+		res.send('Hello World!');
+	});
+
+	app.listen(3000, function () {
+		console.log('App is runing!');
+	});
 });
