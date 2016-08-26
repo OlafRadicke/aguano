@@ -25,9 +25,9 @@ recursive(process.env.AGUANO_CONTENT, function (err, files) {
 		var stmt = db.prepare("INSERT INTO keyword VALUES (?,?)");
 		files.forEach(function(path) {
 			trim(path).split("/").forEach(function(part){
-				part.split(/-| |_|\./).forEach(function(key){
+				part.split(/-| |_|\.|,|\[|\]|\(|\)/).forEach(function(key){
 					if (key.length > 2) {
-						stmt.run(path, key);
+						stmt.run(path, key.toLowerCase() );
 					};
 				})
 			})
@@ -37,8 +37,8 @@ recursive(process.env.AGUANO_CONTENT, function (err, files) {
 		// db.each("SELECT path, key FROM keyword", function(err, row) {
 		//  	console.log(row.path + ": " + row.key);
 		// });
-		db.each("SELECT DISTINCT key FROM keyword ORDER BY key ASC", function(err, row) {
-			console.log(row.path + ": " + row.key);
+		db.each("SELECT DISTINCT  key FROM keyword ORDER BY key ASC", function(err, row) {
+			console.log("key: " + row.key);
 		});
 	});
 
