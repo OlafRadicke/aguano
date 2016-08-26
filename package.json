@@ -5,8 +5,7 @@
   "author": "Olaf Radicke",
   "homepage": "https://github.com/OlafRadicke/aguano",
   "keywords": [
-    "ghost",
-    "blog",
+    "keywords",
     "cms"
   ],
   "repository": {
@@ -24,7 +23,8 @@
     "express": "4.14.0",
     "sqlite3": "3.1.4",
 		"crypto": "*",
-		"recursive-readdir": "*"
+		"recursive-readdir": "*",
+		"trim": "*"
   },
   "optionalDependencies": {
     "sqlite": "3"
